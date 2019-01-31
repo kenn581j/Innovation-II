@@ -5,8 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Innovation_II"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="MainWindow" Height="600" Width="450">
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Window.Loaded">
+            <BeginStoryboard>
+                <Storyboard AutoReverse="True" BeginTime="0" RepeatBehavior="10">
+                    <DoubleAnimation Storyboard.TargetName="Foo"
+                                     Storyboard.TargetProperty="Offset"
+                                     From="0.2" To="0.8" Duration="0:0:7"/>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
+    <Border>
+        <Border.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="Blue" Offset="0"/>
+                <GradientStop Color="GhostWhite" Offset="0.2"  x:Name="Foo"/>
+                <GradientStop Color="DeepSkyBlue" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.Background>
+        <Grid>
+
+            <Grid HorizontalAlignment="Left" Height="133" VerticalAlignment="Top" Width="450" Margin="0,0,-6.667,0">
+                <Label Name="lb_time" Content="Time" Foreground="Black" FontSize="56" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="10,34,0,0" VerticalAlignment="Top" Height="89" Width="430"/>
+                <Label Name="lb_date" Content="Date" Foreground="Black"  HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="348,3,0,0" VerticalAlignment="Top" Width="92"/>
+            </Grid>
+            <Button Name="btn_Test" Content="Test" Opacity="0" HorizontalAlignment="Left" Margin="358,499,0,0" VerticalAlignment="Top" Width="75" Height="62" Click="Btn_Test_Click"/>
+            <Label Name="lb_one" HorizontalContentAlignment="Center" FontSize="34"  Content="" Margin="10,164,0.333,0" VerticalAlignment="Top" Height="69"/>
+            <Label Name="lb_two" HorizontalContentAlignment="Center" FontSize="14"  Content="" Margin="100,238,100.333,0" VerticalAlignment="Top" Height="34"/>
+            <Label Name="lb_three" HorizontalContentAlignment="Center" FontSize="14"  Content="" Margin="100,277,100.333,0" VerticalAlignment="Top" Height="34"/>
+            <Label Name="lb_four" HorizontalContentAlignment="Center" FontSize="14"  Content="" Margin="100,316,100.333,0" VerticalAlignment="Top" Height="34"/>
+            <Label Name="lb_five" HorizontalContentAlignment="Center" FontSize="14"  Content="" Margin="100,355,100.333,0" VerticalAlignment="Top" Height="34"/>
+            <WrapPanel Name="wrapPanel_ProfilePic" Height="145" Margin="146,416,146,0" VerticalAlignment="Top"/>
+
+        </Grid>
+    </Border>
 </Window>
